@@ -82,9 +82,9 @@ export default function Home({products}: InferGetServerSidePropsType<typeof getS
           <h1 className='text-center text-3xl'>The complete <span className='logo'>EXCELSIOR</span> catalog</h1>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-4 w-96 mt-24 px-12'>
           {
-            [1,2,34,5,6,7,5,6,7,8,5,34,3,2,34,4].map(item => {
+            [1,2,34,5,6,7,5,6,7,8,5,34,3,2,34,4].map((item, index) => {
               return (
-              <Link href='/' className='border-none p-0'>
+              <Link key={index} href='/' className='border-none p-0'>
                 <img src="https://cdn.discordapp.com/attachments/911206419280314442/1125888270367211530/product.png" alt="" className='w-full h-full object-cover hover:scale-105'/>
               </Link>
               )

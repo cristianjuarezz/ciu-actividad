@@ -9,14 +9,22 @@
   --color-main: #1D110C
   --color-sec: #DCC2B2
 
-  .dark
-    --color-bg: #19120F
+  &:has(.dark)
+    --color-bg: #171311
     --color-main: #F9F0ED
     --color-sec: #342319
-  
+
+::-webkit-scrollbar
+  display: none
+
+::selection
+  background: #1d1d1d22
+
 *
   color: var(--color-main)
   transition-duration: 200ms
+  app-region: no-drag
+  -webkit-user-drag: none
 
 body
   background: var(--color-bg)
@@ -25,16 +33,18 @@ body
   background-position: center
   font-family: 'Inter', sans-serif
   font-size: 1rem
+  overflow-x: hidden
 
 nav
-  backdrop-filter: grayscale(1) blur(0px)
+  backdrop-filter: grayscale(1) blur(0px) contrast(1)
   transition-duration: 600ms
   
   &:hover
-    backdrop-filter: grayscale(1) blur(10px)
+    backdrop-filter: grayscale(1) blur(8px) contrast(0.6)
 
   a
     padding: 1rem 2.32rem
+    white-space: nowrap
     box-shadow: inset 3px 3px 36px #00000000, inset -3px -3px 36px #00000000
 
     &:hover
@@ -71,7 +81,7 @@ a
   padding: 0
 
   &:hover
-    filter: drop-shadow(0px 0px 8px black)
+    filter: drop-shadow(0px 0px 10px black)
     box-shadow: none
 
 .cta
@@ -82,7 +92,7 @@ a
 
 .hero
   display: grid
-  grid-template-columns: repeat(7, 1fr)
+  grid-template-columns: repeat(5, 1fr) 0.7fr 0.7fr
   grid-template-rows: 1fr 1fr
   grid-template-areas: 'main main a b c coffee coffee' 'main main offer offer offer coffee coffee'
 
@@ -90,6 +100,9 @@ a
     padding: 0
     border: none
     overflow: hidden
+
+    &:hover img
+      filter: grayscale(1) brightness(0.5)
 
   *:nth-child(1)
     grid-area: main
@@ -99,6 +112,9 @@ a
 
   *:nth-child(6)
     grid-area: coffee
+
+.prata
+  font-family: 'Prata'
 
 @media (max-width: 768px)
   .hero

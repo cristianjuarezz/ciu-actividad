@@ -15,7 +15,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className={theme?'dark':''}>
-      <Navbar switcher={switchTheme}/>
+      <Navbar switcher={switchTheme} theme={theme}/>
       {children}
     </div>
   );

@@ -52,10 +52,6 @@ export default function Home({products}: InferGetServerSidePropsType<typeof getS
   const mainOfferProducts = products.filter(product => product.offer === 'Main').reverse()
   const secondaryOfferProducts = products.filter(product => product.offer === 'Secondary').reverse()
 
-  useEffect(()=>{
-    console.log(products)
-  }, [])
-
   return (
     <>
       <Head>

@@ -1,0 +1,106 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap')
+
+:root
+  --color-bg: #F8F0ED
+  --color-main: #1D110C
+  --color-sec: #DCC2B2
+
+  .dark
+    --color-bg: #19120F
+    --color-main: #F9F0ED
+    --color-sec: #342319
+  
+*
+  color: var(--color-main)
+  transition-duration: 200ms
+
+body
+  background: var(--color-bg)
+  --background: url("https://cdn.discordapp.com/attachments/911206419280314442/1125879024737067040/image.png")
+  background-size: contain
+  background-position: center
+  font-family: 'Inter', sans-serif
+  font-size: 1rem
+
+nav
+  backdrop-filter: grayscale(1) blur(0px)
+  transition-duration: 600ms
+  
+  &:hover
+    backdrop-filter: grayscale(1) blur(10px)
+
+  a
+    padding: 1rem 2.32rem
+    box-shadow: inset 3px 3px 36px #00000000, inset -3px -3px 36px #00000000
+
+    &:hover
+      box-shadow: inset 8px 8px 26px #00000044, inset -8px -8px 26px #00000044
+
+section
+  min-height: 100vh
+  display: flex
+
+h1
+  font-family: 'Prata'
+  --xfont-size: 3.05rem
+  
+  span
+    --xcolor: var(--color-sec)
+
+h2
+  font-family: 'Prata'
+
+a
+  border: 1px solid var(--color-main)
+  padding: 1.6rem 2rem
+
+.dark
+  .hero > div img
+    filter: invert(1)
+    mix-blend-mode: exclusion
+
+.logo
+  font-family: 'Inter'
+  font-weight: bolder
+  letter-spacing: 0.2rem
+  border: none
+  padding: 0
+
+  &:hover
+    filter: drop-shadow(0px 0px 8px black)
+    box-shadow: none
+
+.cta
+  width: fit-content
+  background: var(--color-main)
+  color: var(--color-bg)
+  font-weight: bolder
+
+.hero
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  grid-template-rows: 1fr 1fr
+  grid-template-areas: 'main main a b c coffee coffee' 'main main offer offer offer coffee coffee'
+
+  a
+    padding: 0
+    border: none
+    overflow: hidden
+
+  *:nth-child(1)
+    grid-area: main
+
+  *:nth-child(5)
+    grid-area: offer
+
+  *:nth-child(6)
+    grid-area: coffee
+
+@media (max-width: 768px)
+  .hero
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-areas: 'main main main' 'main main main' 'a b c' 'offer offer offer' 'coffee coffee coffee' 'coffee coffee coffee'
